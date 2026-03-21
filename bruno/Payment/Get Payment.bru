@@ -1,0 +1,11 @@
+meta {
+  name: Get Payment Status
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/payment/{{lastPaymentId}}
+  body: none
+  auth: none
+}

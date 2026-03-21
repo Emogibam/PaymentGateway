@@ -1,0 +1,28 @@
+meta {
+  name: Initiate Payment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/payment
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "apiKey": "{{apiKey}}",
+    "amount": 120.50,
+    "currency": "USD",
+    "cardNumber": "4111111111111111",
+    "reference": "order-54321",
+    "idempotencyKey": "unique-id-{{$guid}}"
+  }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setVar("lastPaymentId", res.body.paymentId);
+  }
+}
