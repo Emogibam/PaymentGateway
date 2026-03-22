@@ -46,7 +46,8 @@ public class MerchantIntegrationTests : IClassFixture<WebApplicationFactory<Merc
     {
         // Arrange
         var client = _factory.CreateClient();
-        var request = new CreateMerchantRequest("Integration Test Merchant", "https://webhook.com");
+        var request = new CreateMerchantRequest("Integration Test Merchant", "int@test.com", "https://webhook.com");
+
 
         // Act
         var response = await client.PostAsJsonAsync("/api/Merchant", request);

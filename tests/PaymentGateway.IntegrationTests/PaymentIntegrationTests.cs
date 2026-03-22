@@ -66,7 +66,8 @@ public class PaymentIntegrationTests : IClassFixture<WebApplicationFactory<Payme
         using (var scope = _factory.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            db.Merchants.Add(new Merchant { Id = merchantId, Name = "Test Merchant", ApiKey = apiKey });
+            db.Merchants.Add(new Merchant { Id = merchantId, Name = "Test Merchant", Email = "test@merchant.com", ApiKey = apiKey });
+
             await db.SaveChangesAsync();
         }
 

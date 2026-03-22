@@ -1,4 +1,7 @@
-﻿namespace PaymentGateway.IntegrationTests;
+using Xunit;
+
+namespace PaymentGateway.IntegrationTests;
+
 
 public class UnitTest1
 {
